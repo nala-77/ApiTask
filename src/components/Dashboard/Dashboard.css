@@ -1,0 +1,4 @@
+.dashbord-layout {
+  display: flex;
+  justify-content: space-between;
+}

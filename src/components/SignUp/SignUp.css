@@ -1,0 +1,65 @@
+/* for sizes, its diffrent from the signIn */
+.SignUp .sign-form .form-input {
+  margin-bottom: 16px !important;
+}
+.SignUp .sign-form .form-input label {
+  margin-bottom: 8px;
+}
+.SignUp .sign-wrapper {
+  padding: 40px 30px 20px;
+}
+.SignUp .sign-wrapper .sign-head {
+  text-transform: uppercase;
+  margin: 32px 0 9px;
+}
+.input-parent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.input-parent input {
+  width: 200px;
+}
+.imgFile-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  border: 2px dashed #384eb74d;
+  margin: 9px 0 5px;
+  background: #f8f8ff;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 530px) {
+  .input-parent input {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  .SignUp .sign-form .form-input {
+    margin-bottom: 0.4em !important;
+  }
+  .SignUp .sign-wrapper {
+    padding: 1em 20px 0.9em;
+  }
+  .SignUp .sign-wrapper .sign-head {
+    text-transform: uppercase;
+    margin: 1em 0 9px;
+  }
+  .SignUp .sign-txt {
+    margin-bottom: 1em !important;
+  }
+  .imgFile-parent {
+    width: 70px;
+    height: 70px;
+  }
+  .SignUp .sign-form .sign-btn {
+    margin: 0.2em 0 1em;
+  }
+  .form-input input:not(input[type="file"]) {
+    height: 38px !important;
+  }
+
+}

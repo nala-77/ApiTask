@@ -1,0 +1,126 @@
+.main-background {
+  background-color: var(--main-color);
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign-wrapper {
+  width: 476px;
+  padding: 41px 30.6px;
+  box-shadow: 2px 5px 10px 0px #0000001a;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.sign-form {
+  width: 100%;
+}
+.sign-head {
+  text-transform: uppercase;
+  margin: 43px 0 9px;
+}
+.sign-txt {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17.07px;
+  margin-bottom: 50px;
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+label {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.form-input input:not(input[type="file"]) {
+  height: 44px;
+  border: 1px solid var(--input-color);
+  border-radius: 4px;
+  padding: 15px;
+}
+::placeholder {
+  color: var(--placeholder);
+}
+.sign-btn {
+  background-color: var(--main-color);
+  border: 0;
+  outline: 0;
+  width: 100%;
+  height: 44px;
+  font-size: 14px;
+  border-radius: 4px;
+  /* font-weight: 500; */
+  color: white;
+  text-transform: uppercase;
+  margin: 10px 0 27px;
+
+  position: relative;
+  overflow: hidden;
+  transition: all 1s ease;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* btn-hover */
+.sign-btn::before {
+  background-color: black;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: all 0.6s ease;
+  width: 100%;
+  height: 0;
+}
+.sign-btn:hover::before {
+  height: 100%;
+}
+.sign-question {
+  color: var(--text-color);
+  font-size: 14px;
+}
+.sign-question a {
+  color: var(--main-color);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 550px) {
+  .main-background {
+    padding: 0 20px;
+  }
+  .sign-wrapper {
+    width: 100%;
+    padding: 30px 20px;
+  }
+  .sign-img {
+    width: 130px;
+  }
+  .sign-img img {
+    width: 100%;
+  }
+  .sign-head {
+    margin: 30px 0 9px;
+    font-size: 19px;
+  }
+  .sign-txt {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-bottom: 40px;
+  }
+  .sign-btn {
+    height: 35px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,126 @@
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  width: 270px;
+  background-color: var(--dashbord-color);
+  padding: 35px 0 31px;
+}
+.sidebar-head-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-head {
+  width: 97px;
+  position: relative;
+  margin-bottom: 54px;
+}
+.sidebar-head::before {
+  position: absolute;
+  content: "";
+  height: 89%;
+  left: -17%;
+  background-color: var(--yellow);
+  width: 5px;
+}
+.sidebar-head img {
+  width: 100%;
+}
+.profile-img {
+  width: 128px;
+  height: 128px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.profile-img img {
+  width: 100%;
+  object-fit: cover;
+}
+.sidebar-head-parent h2 {
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: capitalize;
+}
+.links-item:first-child {
+  background-color: var(--main-color);
+}
+.links-item {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 40px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.links-item:not(:last-child) {
+  margin-bottom: 31px;
+}
+.links-item a {
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+}
+.links-item:hover {
+  background-color: var(--main-color);
+}
+.sidebar-logOut {
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  gap: 23px;
+  align-items: end;
+  cursor: pointer;
+}
+.sidebar-logOut img {
+  width: 17px;
+  height: 17px;
+}
+.responsive-icon {
+  display: none;
+}
+@media screen and (max-width: 806px) {
+  .responsive-icon {
+    display: block;
+  }
+  .dashboard-sidebar {
+    position: absolute;
+    left: -100%;
+    width: 250px;
+    transition: 0.5s;
+    z-index: 2;
+  }
+  .dashboard-sidebar.sidebar-active {
+    left: 0;
+  }
+  .overlay {
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+  }
+  .responsive-icon {
+    height: 100vh;
+    width: 10px;
+    background-color: var(--main-color);
+    position: relative;
+    left: 0;
+  }
+  .user-icon {
+    background-color: var(--main-color);
+    color: #e5e5e5;
+    font-size: 35px;
+    position: absolute;
+    top: 17%;
+    border-radius: 0 30px 30px 0;
+    border: 5px solid var(--main-color);
+  }
+}
