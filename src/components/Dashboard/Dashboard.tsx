@@ -6,7 +6,6 @@ import Sidebar from "../Sidebar/Sidebar";
 
 // for images
 import focalX from "./../../../public/Logo.svg";
-import profilePic from "./../../../public/pexels-photo-2379004 1.png";
 import favorite from "./../../../public/bookmark 1.svg";
 import productsPic from "./../../../public/Vector.svg";
 import { useEffect, useState } from "react"

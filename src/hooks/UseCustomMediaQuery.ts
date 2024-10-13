@@ -6,9 +6,9 @@ function UseCustomMediaQuery() {
   useEffect(() => {
     const updateItemsPerPage = () => {
       const width = window.innerWidth;
-      if (width >= 1300) {
+      if (width <= 1920 && width >= 1300) {
         setItemsPerPage(8); // Large screen: 
-      } else if (width >= 1119 && width < 1300) {
+      } else if (width >= 1119 && width < 1400) {
         setItemsPerPage(6); // Medium screen
       } else if (width >= 600 && width < 1135) {
         setItemsPerPage(4); // Small screen

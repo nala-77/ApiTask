@@ -8,7 +8,6 @@ import SignUp from "./components/SignUp/SignUp.tsx";
 import SignIn from "./components/SignIn/SignIn.tsx";
 import Dashboard from "./components/Dashboard/Dashboard.tsx";
 import Home from "./components/Home/Home.tsx";
-import Error from "./components/Error/Error.tsx";
 import Show from "./components/Show/Show.tsx";
 import Add from "./components/Add/Add.tsx";
 import Edit from "./components/Edit/Edit.tsx";

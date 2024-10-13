@@ -38,6 +38,7 @@
 }
 .profile-img img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .sidebar-head-parent h2 {

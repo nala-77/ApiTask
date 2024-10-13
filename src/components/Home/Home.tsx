@@ -11,7 +11,6 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import NotFoundImage from "./path/to/not-found-image.png"; // Adjust the path as necessary
 
 interface CardProps {
   id: number;

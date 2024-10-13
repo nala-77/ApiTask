@@ -40,10 +40,13 @@
     font-size: 28px;
   }
 }
-@media only screen and (max-width: 806px) {
+@media only screen and (max-width: 810px) {
   .show-main {
     width: 80% !important;
     gap: 1rem;
+  }
+  .show-main .add-head {
+    margin: 50px 0 25px;
   }
   .show-details p {
     font-size: 30px;
