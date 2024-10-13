@@ -1,26 +1,26 @@
-import './index.css'
+import "./index.css";
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import SignUp from './components/SignUp/SignUp.tsx'
-import SignIn from './components/SignIn/SignIn.tsx'
-import Dashboard from './components/Dashboard/Dashboard.tsx'
-import Home from './components/Home/Home.tsx'
-import Error from './components/Error/Error.tsx'
-import Show from './components/Show/Show.tsx'
-import Add from './components/Add/Add.tsx'
-import Edit from './components/Edit/Edit.tsx'
+import SignUp from "./components/SignUp/SignUp.tsx";
+import SignIn from "./components/SignIn/SignIn.tsx";
+import Dashboard from "./components/Dashboard/Dashboard.tsx";
+import Home from "./components/Home/Home.tsx";
+import Error from "./components/Error/Error.tsx";
+import Show from "./components/Show/Show.tsx";
+import Add from "./components/Add/Add.tsx";
+import Edit from "./components/Edit/Edit.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/signup",
-    element: <SignUp />
+    element: <SignUp />,
   },
   {
     path: "/",
-    element: <SignIn />
+    element: <SignIn />,
   },
   {
     path: "/dashboard",
@@ -32,15 +32,15 @@ const router = createBrowserRouter([
       },
       {
         path: "show/:id",
-        element: <Show />
+        element: <Show />,
       },
       {
         path: "add",
-        element: <Add />
+        element: <Add />,
       },
       {
         path: "edit/:id",
-        element: <Edit />
+        element: <Edit />,
       },
       {
         path: "favorites",
@@ -48,16 +48,14 @@ const router = createBrowserRouter([
       },
       {
         path: "orders",
-         //here should be order list page
-      }
+        //here should be order list page
+      },
     ],
-  }
+  },
 ]);
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider
-    router={router}
-  />
-  </StrictMode>,
-)
+    <RouterProvider router={router} />
+  </StrictMode>
+);
