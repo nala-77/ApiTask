@@ -39,7 +39,7 @@ function Delete({ text, confirm, cancel, x, id, onClose }: DeleteInfo) {
 
   return (
     <section className="delete-parent">
-      <div className="delete-head">
+      <div  className={`delete-head ${state ? 'pop-up' : ''}`}>
         <h3>{text}</h3>
         <div className="delete-btns">
           <button onClick={deleteItem}>{confirm}</button>
