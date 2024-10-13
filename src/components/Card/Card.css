@@ -62,7 +62,7 @@
   background-color: var(--delete);
 }
 
-@media only screen and (min-width: 1300px) and (max-width: 1920px) {
+@media only screen and (min-width: 1530px) and (max-width: 1920px) {
   .item {
     width: 22%;
     height: 190px;
