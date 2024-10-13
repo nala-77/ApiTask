@@ -35,6 +35,8 @@
   font-weight: 500;
   margin-bottom: 32px;
   color: black;
+  padding: 0 10px;
+  text-align: center;
 }
 .item-overlay .item-btns {
   display: flex;

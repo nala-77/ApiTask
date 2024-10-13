@@ -1,12 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Add.css";
 import "./../Sign/Sign.css";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+
 import upload from "./../../../public/Upload icon.svg";
+
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+
 function Add() {
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -16,7 +20,8 @@ function Add() {
 
   const [name, setName] = useState<string>("");
   const [price, setPrice] = useState<number>();
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
 
   function save(event: any) {
     event.preventDefault();
@@ -36,7 +41,7 @@ function Add() {
         }
       )
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.image);
         navigate("/dashboard");
       })
       .catch((error) => console.log(error));
@@ -69,7 +74,7 @@ function Add() {
               type="number"
               name="price"
               placeholder="Enter the product price"
-              onChange={(event) => setPrice(event.target.value)}
+              onChange={(event) => setPrice(Number(event.target.value))}
             />
           </div>
         </div>
@@ -77,11 +82,27 @@ function Add() {
           <label>Profile Image</label>
           <div
             className="imgFile-parent"
-            onClick={() => document.querySelector(".file-img").click()}
-            onChange={(event) => setImg(event.target.files[0])}
+            onClick={() => fileInputRef.current?.click()}
+            onChange={(event) => 
+              setImg(event.target.files[0])}
           >
-            <input type="file" className="file-img" hidden />
-            <img src={upload} alt="upload img" />
+            <input
+              type="file"
+              ref={fileInputRef}
+              hidden
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) {
+                  setImg(file);
+                  setPreviewUrl(URL.createObjectURL(file));
+                }
+              }}
+            />
+            {previewUrl ? (
+              <img src={previewUrl} alt="Selected" className="url-img" />
+            ) : (
+              <img src={upload} alt="upload img" />
+            )}
           </div>
         </div>
       </div>

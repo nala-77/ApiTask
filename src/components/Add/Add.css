@@ -37,12 +37,18 @@
   width: 100%;
   height: 201px;
 }
-.add-img .imgFile-parent img {
+.imgFile-parent .url-img {
   height: 100%;
   object-fit: cover;
 }
+.imgFile-parent .upload {
+  height: 108px;
+}
 .add-text .form-input:first-child {
   margin-bottom: 64px;
+}
+input:focus {
+  outline: 1px solid black;
 }
 .save-btn {
   display: block;
@@ -54,6 +60,13 @@
   padding: 11px 0;
   border-radius: 4px;
   width: 199px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.save-btn:hover {
+  color: var(--main-color);
+  background-color: transparent;
+  border: 2px solid var(--main-color);
 }
 @media only screen and (max-width: 950px) {
   .add-text .form-input:first-child {

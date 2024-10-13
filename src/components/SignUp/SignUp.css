@@ -32,7 +32,17 @@
   background: #f8f8ff;
   cursor: pointer;
 }
-
+.SignUp .upload {
+  width: 40px;
+}
+.SignUp .imgFile-parent .url-img {
+  width: 100% !important;
+}
+.error-message {
+  color: var(--delete);
+  font-size: 12px;
+  font-weight: 600;
+}
 @media only screen and (max-width: 530px) {
   .input-parent input {
     margin-bottom: 8px;

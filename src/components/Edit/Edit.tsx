@@ -1,25 +1,19 @@
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import upload from "./../../../public/Upload icon.svg";
+
 function Edit() {
   const [name, setName] = useState<string>("");
   const [price, setPrice] = useState<number>();
-  const [img, setImg] = useState(null);
-// interface CardProps {
-//   id: number;
-//   image_url: string;
-//   name: string;
-//   price: number;
-//   created_at: string;
-//   updated_at: string;
-// }
-
+  const [img, setImg] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
   const params = useParams();
   const navigate = useNavigate();
   const [cardData, setCardData] = useState<any>([]);
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
@@ -33,15 +27,17 @@ function Edit() {
       .then((res) => {
         setCardData(res.data);
       });
-  }, []);
-  function edit(event: any) {
+  }, [navigate, params.id]);
+
+  function edit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     axios
       .post(
         `https://test1.focal-x.com/api/items/${params.id}`,
         {
-          name: name,
-          price: price,
+          name: name || cardData.name,
+          price: price || cardData.price,
           image: img,
           _method: "PUT",
         },
@@ -58,53 +54,76 @@ function Edit() {
       })
       .catch((error) => console.log(error));
   }
+
   return (
     <div className="add-parent">
       <div>
         <Link to="/dashboard" className="back-icon">
           <FontAwesomeIcon icon={faChevronLeft} />
         </Link>
+
+        <h2 className="add-head">Edit item</h2>
       </div>
 
-      <div className="add-form">
-        <div className="add-text">
-          <div className="form-input">
-            <label>Name</label>
-            <input
-              type="text"
-              name="productName"
-              placeholder="Enter the product name"
-              defaultValue={cardData.name}
-              onChange={(event) => setName(event.target.value)}
-            />
-          </div>
+      <form onSubmit={edit}>
+        <div className="add-form">
+          <div className="add-text">
+            <div className="form-input">
+              <label>Name</label>
+              <input
+                type="text"
+                name="productName"
+                placeholder="Enter the product name"
+                defaultValue={cardData.name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </div>
 
-          <div className="form-input">
-            <label>Price</label>
-            <input
-              type="number"
-              name="price"
-              placeholder="Enter the product price"
-              defaultValue={cardData.price}
-              onChange={(event) => setPrice(event.target.value)}
-            />
+            <div className="form-input">
+              <label>Price</label>
+              <input
+                type="number"
+                name="price"
+                placeholder="Enter the product price"
+                defaultValue={cardData.price}
+                onChange={(event) => setPrice(Number(event.target.value))}
+              />
+            </div>
+          </div>
+          <div className="add-img">
+            <label>Profile Image</label>
+            <div
+              className="imgFile-parent"
+              onClick={() => document.querySelector(".file-img")?.click()}
+            >
+              <input
+                type="file"
+                className="file-img"
+                hidden
+                onChange={(event) => {
+                  const file = event.target.files?.[0];
+                  if (file) {
+                    setImg(file);
+                    setPreviewUrl(URL.createObjectURL(file));
+                  }
+                }}
+              />
+              {previewUrl ? (
+                <img src={previewUrl} alt="Selected" className="url-img" />
+              ) : (
+                <img
+                  src={cardData.image_url}
+                  className="url-img"
+                  alt="upload img"
+                />
+              )}
+            </div>
           </div>
         </div>
-        <div className="add-img">
-          <label>Profile Image</label>
-          <div
-            className="imgFile-parent"
-            onClick={() => document.querySelector(".file-img").click()}
-            onChange={(event) => setImg(event.target.files[0])}
-          >
-            <input type="file" className="file-img" hidden />
-            <img src={cardData.image_url} alt="upload img" />
-          </div>
-        </div>
-      </div>
-      <button onClick={(event) => edit(event)} className="save-btn">
-        Save
-      </button>
+        <button type="submit" className="save-btn">
+          Save
+        </button>
+      </form>
     </div>
   );
 }

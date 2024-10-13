@@ -1,0 +1,85 @@
+.delete-parent {
+  position: absolute;
+  background-color: #00000080;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(30px);
+  z-index: 99;
+}
+.delete-head {
+  width: 62%;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 80px 20px;
+}
+.delete-btns {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 80px;
+}
+.delete-head h3 {
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.delete-btns button {
+  width: 199px;
+  height: 61px;
+  border-radius: 4px;
+  color: white;
+  border: 0;
+  background-color: var(--main-color);
+  font-size: 28px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .5s;
+}
+.delete-btns button:hover {
+ border: 2px solid var(--main-color);
+ color: var(--main-color);
+ background-color: transparent;
+  }
+@media only screen and (max-width: 950px) {
+  .delete-head {
+    width: 80%;
+  }
+  .delete-head h3 {
+    font-size: 19px;
+  }
+  .delete-btns {
+    margin-top: 40px;
+}
+.delete-btns button {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 450px) {
+    .delete-head {
+      width: 94%;
+    }
+    .delete-head h3 {
+      font-size: 18px;
+    }
+    .delete-btns {
+      margin-top: 30px;
+  }
+  .delete-btns button {
+      width: 100px;
+      height: 40px;
+      font-size: 18px;
+    }
+  }
+  

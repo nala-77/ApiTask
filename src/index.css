@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +15,8 @@
   --delete: #FE0000;
   --dashbord-color: #F2EAE1;
   --yellow: #F8D442;
-  --pagenation-font: Open Sans 
+  --pagenation-font: Open Sans;
+  --not-found: Sixtyfour Convergence
 }
 li {
   list-style: none;

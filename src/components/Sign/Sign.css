@@ -58,10 +58,9 @@ label {
   height: 44px;
   font-size: 14px;
   border-radius: 4px;
-  /* font-weight: 500; */
   color: white;
   text-transform: uppercase;
-  margin: 10px 0 27px;
+  margin: 10px 0 16px;
 
   position: relative;
   overflow: hidden;

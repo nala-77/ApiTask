@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 import logout from "./../../../public/sign-out-alt 1(1).svg";
@@ -18,9 +18,15 @@ interface sidebarData {
 }
 function Sidebar({ head_image, profile_img, name, linksArray }: sidebarData) {
   const [state, setState] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setState(!state);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
   };
   return (
     <>
@@ -53,10 +59,10 @@ function Sidebar({ head_image, profile_img, name, linksArray }: sidebarData) {
         </ul>
 
         <div>
-          <Link className="sidebar-logOut" to="/">
+          <button className="sidebar-logOut" onClick={handleLogout}>
             Logout
             <img src={logout} alt="logout" />
-          </Link>
+          </button>
         </div>
       </div>
       <div className="responsive-icon">

@@ -1,17 +1,17 @@
 import "./Dashboard.css";
+
+
 import { Outlet } from "react-router-dom";
-
 import Sidebar from "../Sidebar/Sidebar";
-// import Card from "../Card/Card";
 
+// for images
 import focalX from "./../../../public/Logo.svg";
 import profilePic from "./../../../public/pexels-photo-2379004 1.png";
 import favorite from "./../../../public/bookmark 1.svg";
 import productsPic from "./../../../public/Vector.svg";
-// import itemPic from "./../../../public/image 1.png";
-// import Pagination from "../Pagenation/Pagenation";
-// import { useEffect, useState } from "react";
-// import axios from "axios"; // or fetch
+import { useEffect, useState } from "react"
+import defaultProfilePic from "./../../../public/pexels-photo-2379004 1.png"
+
 
 const linksArray = [
   {
@@ -31,17 +31,36 @@ const linksArray = [
   },
 ];
 
+
 function Dashboard() {
+  const [name, setName] = useState<string>("")
+  const [profileImg, setProfileImg] = useState<string>("")
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    const storedProfileImg = localStorage.getItem("img");
+    if (storedName) {
+      setName(storedName);
+    } else {
+      setName("User");
+    }
+
+    if (storedProfileImg) {
+      setProfileImg(storedProfileImg);
+    } else {
+      setProfileImg(defaultProfilePic);
+    }
+  }, []);
 
   return (
-    <main className="dashbord-layout">
+    <main className="dashboard-layout">
       <Sidebar
         head_image={focalX}
-        profile_img={profilePic}
-        name="Mohammed Alkordy"
+        profile_img={profileImg}
+        name={name}
         linksArray={linksArray}
       />
-     
+
       <Outlet />
     </main>
   );
