@@ -60,8 +60,7 @@ label {
   border-radius: 4px;
   color: white;
   text-transform: uppercase;
-  margin: 10px 0 16px;
-
+  margin: 10px 0;
   position: relative;
   overflow: hidden;
   transition: all 1s ease;

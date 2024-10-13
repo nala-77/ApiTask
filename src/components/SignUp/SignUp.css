@@ -40,8 +40,9 @@
 }
 .error-message {
   color: var(--delete);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
+  text-align: center;
 }
 @media only screen and (max-width: 530px) {
   .input-parent input {
