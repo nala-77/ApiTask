@@ -84,7 +84,8 @@ function Add() {
             className="imgFile-parent"
             onClick={() => fileInputRef.current?.click()}
             onChange={(event) => 
-              setImg(event.target.files[0])}
+              setImg((event.target as HTMLInputElement).files?.[0] || null)}
+
           >
             <input
               type="file"

@@ -35,7 +35,10 @@ function SignUp() {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password_confirmation", rePassword);
-    formData.append("profile_image", img);
+    if (img) {
+      formData.append("profile_image", img);
+    }
+    
 
     axios
       .post("https://test1.focal-x.com/api/register", formData, {

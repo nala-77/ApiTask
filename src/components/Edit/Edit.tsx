@@ -94,7 +94,11 @@ function Edit() {
             <label>Profile Image</label>
             <div
               className="imgFile-parent"
-              onClick={() => document.querySelector(".file-img")?.click()}
+              onClick={() =>
+                (
+                  document.querySelector(".file-img") as HTMLInputElement
+                )?.click()
+              }
             >
               <input
                 type="file"
